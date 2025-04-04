@@ -1,1 +1,477 @@
-<h1>jesudas Repo</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #0366d6;
+            --secondary-color: #24292e;
+            --accent-color: #2ea44f;
+            --text-color: #24292e;
+            --light-bg: #f6f8fa;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+        
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+        }
+        
+        .bio {
+            max-width: 600px;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        main {
+            padding: 3rem 0;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 4px;
+            background-color: var(--primary-color);
+        }
+        
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+            background-color: var(--light-bg);
+            border-bottom: 1px solid #e1e4e8;
+        }
+        
+        .project-title {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .project-description {
+            color: #586069;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-tag {
+            background-color: #f1f8ff;
+            color: var(--primary-color);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+        
+        .card-footer {
+            padding: 1rem 1.5rem;
+            background-color: var(--light-bg);
+            border-top: 1px solid #e1e4e8;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .repo-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .repo-link:hover {
+            color: #0076ff;
+            text-decoration: underline;
+        }
+        
+        .demo-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .demo-link:hover {
+            color: #3ac162;
+            text-decoration: underline;
+        }
+        
+        .skills-section {
+            margin-top: 4rem;
+        }
+        
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-category {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+        }
+        
+        .skill-category h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-bg);
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .skill-list li::before {
+            content: '•';
+            color: var(--primary-color);
+        }
+        
+        .contact-section {
+            background-color: var(--light-bg);
+            padding: 4rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        .contact-options {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-option {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            transition: transform 0.3s;
+        }
+        
+        .contact-option:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #6cc644;
+        }
+        
+        @media (max-width: 768px) {
+            .projects {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-options {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-option {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile">
+                <img src="/api/placeholder/150/150" alt="Profile Picture" class="profile-pic">
+                <h1>Developer Portfolio</h1>
+                <p class="bio">
+                    A passionate software developer specializing in web applications, browser extensions, and AI-powered tools.
+                </p>
+                <div class="social-links">
+                    <a href="https://github.com/yourusername" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects">
+                <!-- ATS Resume Analyzer -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <h3 class="project-title">ATS Resume Analyzer</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="project-description">
+                            A modern, AI-powered Applicant Tracking System (ATS) compliance analyzer that helps job seekers optimize their resumes for better visibility and success.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">AI</span>
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://github.com/yourusername/ats-resume-analyzer" class="repo-link" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                            View Repository
+                        </a>
+                        <a href="#" class="demo-link" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                                <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                            </svg>
+                            Live Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- HTML-Live-page-editor -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <h3 class="project-title">HTML Live Page Editor</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="project-description">
+                            Chrome Extension that allows users to edit any text on any webpage in real time. Perfect for quick fixes, content editing, and website testing.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Chrome Extension</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://github.com/yourusername/html-live-page-editor" class="repo-link" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                            View Repository
+                        </a>
+                        <a href="#" class="demo-link" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                                <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                            </svg>
+                            Chrome Store
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product Data Attribute Management -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <h3 class="project-title">Product Data Attribute Management</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="project-description">
+                            A system to manage all product attributes and List of Values (LOVs). Streamlines the process of creating, updating, and maintaining product data in e-commerce systems.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Database</span>
+                            <span class="tech-tag">Backend</span>
+                            <span class="tech-tag">API</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://github.com/yourusername/product-attribute-management" class="repo-link" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                            View Repository
+                        </a>
+                        <a href="#" class="demo-link" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                                <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                            </svg>
+                            Live Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- GrammarHelper Chrome Extension -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <h3 class="project-title">GrammarHelper Chrome Extension</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="project-description">
+                            A Chrome extension that uses ChatGPT to provide real-time grammar, spelling, and punctuation corrections as you type in any text field on the web. Optimized to focus on important text inputs and uses token-saving strategies to minimize API usage.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Chrome Extension</span>
+                            <span class="tech-tag">AI</span>
+                            <span class="tech-tag">ChatGPT API</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://github.com/yourusername/grammar-helper" class="repo-link" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                            View Repository
+                        </a>
+                        <a href="#" class="demo-link" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                                <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5
